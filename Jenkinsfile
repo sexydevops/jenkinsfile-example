@@ -1,4 +1,4 @@
-def string = 'test'
+def example_string = 'test'
 pipeline {
     agent any
     parameters {
