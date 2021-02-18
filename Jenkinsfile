@@ -7,18 +7,22 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Building..'
-                sh 'ls'
+                echo "Building.."
+                sh "ls"
+                sh """
+                cat << EOF > .env
+                S3URL=$S3URL
+                DBURL=$DBURL
+                EOF
+                """
+                sh "cat .env"
             }
         }
         stage('Test') {
             steps {
-                echo 'Testing..'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
+                sh "ls"
+                echo "Testing.."
+                sh "cat .env"
             }
         }
     }
