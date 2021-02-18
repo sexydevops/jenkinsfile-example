@@ -12,9 +12,9 @@ pipeline {
                 sh "ls"
                 sh """
                 cat << EOF > .env
-                ENV=$ENV
-                HOST=$HOST
-                EOF
+ENV=$ENV
+HOST=$HOST
+EOF
                 """
                 sh "cat .env"
             }
