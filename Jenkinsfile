@@ -16,7 +16,7 @@ HOST=$HOST
 EOF
                 """
                 sh "ls && cat .env.$ENV"
-                sh "mkdir test && cd $_"
+                sh "mkdir test && cd test && ls -lah"
             }
         }
         stage('Test') {
