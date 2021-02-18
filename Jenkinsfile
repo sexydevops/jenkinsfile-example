@@ -11,19 +11,19 @@ pipeline {
                 echo "Building.."
                 sh "ls"
                 sh """
-                cat << EOF > .env
-ENV=$ENV
+                cat << EOF > .env.$ENV
 HOST=$HOST
 EOF
                 """
-                sh "cat .env"
+                sh "ls && cat .env.$ENV"
+                sh "mkdir test && cd $_"
             }
         }
         stage('Test') {
             steps {
                 sh "ls"
                 echo "Testing.."
-                sh "cat .env"
+                sh "cat .env.$ENV"
             }
         }
     }
