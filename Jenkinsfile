@@ -1,1 +1,1 @@
-def string = ''
+def string = 'test'
